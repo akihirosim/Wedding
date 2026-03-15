@@ -6,20 +6,21 @@ const content = document.querySelector('.cover__content');
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
 const updateScrollEffect = () => {
-  const maxDistance = window.innerHeight * 1.05;
+  const maxDistance = window.innerHeight * 1.4;
   const progress = clamp(window.scrollY / maxDistance, 0, 1);
 
-  // Starts zoomed in and smoothly zooms out while user scrolls.
-  const scale = 1.22 - progress * 0.22;
-  const brightness = 0.9 + progress * 0.1;
+  // Stronger zoom range: noticeably zoomed in at start, then zooms out far beyond normal size.
+  const startScale = 1.42;
+  const endScale = 0.72;
+  const scale = startScale - progress * (startScale - endScale);
 
   imageWrap.style.transform = `scale(${scale})`;
-  imageWrap.style.filter = `brightness(${brightness})`;
-  overlay.style.opacity = String(0.56 - progress * 0.26);
-  content.style.transform = `translateY(${progress * -26}px)`;
-  content.style.opacity = String(1 - progress * 0.75);
+  imageWrap.style.filter = `brightness(${0.88 + progress * 0.12})`;
+  overlay.style.opacity = String(0.62 - progress * 0.34);
+  content.style.transform = `translateY(${progress * -34}px)`;
+  content.style.opacity = String(1 - progress * 0.82);
 
-  cover.style.marginBottom = `${progress * -18}vh`;
+  cover.style.marginBottom = `${progress * -26}vh`;
 };
 
 window.addEventListener('scroll', updateScrollEffect, { passive: true });

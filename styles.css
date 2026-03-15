@@ -63,7 +63,7 @@ body {
 }
 
 .cover h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gistesy', 'Cormorant Garamond', serif;
   margin: 0.5rem 0;
   font-size: clamp(2.4rem, 9vw, 6.5rem);
   font-weight: 700;
