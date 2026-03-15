@@ -1,0 +1,141 @@
+:root {
+  --bg: #f4f0ec;
+  --text: #1f1b18;
+  --muted: #f8f5f2;
+  --accent: #8a6a56;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.cover {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: clip;
+}
+
+.cover__image-wrap {
+  position: absolute;
+  inset: 0;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.cover__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55));
+}
+
+.cover__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+  padding: 1.5rem;
+}
+
+.cover__intro {
+  margin: 0;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.cover h1 {
+  font-family: 'Cormorant Garamond', serif;
+  margin: 0.5rem 0;
+  font-size: clamp(2.4rem, 9vw, 6.5rem);
+  font-weight: 700;
+}
+
+.cover__hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.invitation {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 18vh 1.2rem 4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: color-mix(in srgb, var(--muted) 92%, white);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 14px 40px rgba(30, 23, 18, 0.08);
+}
+
+.eyebrow {
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: var(--accent);
+}
+
+h2,
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  margin: 0 0 0.65rem;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.details-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.rsvp a {
+  display: inline-block;
+  margin-top: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.15rem;
+}
+
+@media (max-width: 720px) {
+  .invitation {
+    padding-top: 14vh;
+  }
+}
